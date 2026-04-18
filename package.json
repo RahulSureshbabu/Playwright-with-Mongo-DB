@@ -1,0 +1,29 @@
+{
+  "name": "ui-playwright-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright and Cucumber UI automation demo with a Node API, MySQL persistence, and HTML reporting",
+  "scripts": {
+    "start:app": "node server.js",
+    "db:up": "docker compose up -d mysql",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f mysql",
+    "test:ui": "playwright test tests/ui.spec.js",
+    "test:ui:all": "playwright test --workers=1",
+    "test:ui:db": "playwright test tests/ui.db.spec.js",
+    "test:ui:headed": "playwright test --headed",
+    "test:ui:debug": "playwright test --debug",
+    "test:bdd": "cucumber-js",
+    "test:bdd:smoke": "cucumber-js --tags @smoke",
+    "test:bdd:regression": "cucumber-js --tags \"@regression and not @negative\"",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.52.0",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "http-server": "^14.1.1",
+    "mongodb": "^6.5.0"
+  }
+}

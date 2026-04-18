@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS ui_playwright_tests;
+USE ui_playwright_tests;
+
+CREATE TABLE IF NOT EXISTS greetings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name_input VARCHAR(255) NOT NULL,
+  resolved_name VARCHAR(255) NOT NULL,
+  greeting_text VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UI Demo - Playwright</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="layout">
+      <section class="card">
+        <p class="eyebrow">Playwright Demo</p>
+        <h1 id="title">Welcome to UI Test Sandbox</h1>
+        <p class="lead">Use this page to validate basic UI flows with Playwright.</p>
+
+        <label class="field" for="name-input">Your name</label>
+        <input id="name-input" type="text" placeholder="Type your name">
+
+        <div class="actions">
+          <button id="greet-btn" type="button">Generate greeting</button>
+        </div>
+
+        <p id="greeting-output" class="output" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
