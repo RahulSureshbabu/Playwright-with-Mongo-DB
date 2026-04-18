@@ -4,7 +4,7 @@
 | Suite | File | What it tests |
 |---|---|---|
 | UI Tests | `tests/ui.spec.js` | DOM rendering and greeting output (no DB) |
-| DB-backed Tests | `tests/ui.db.spec.js` | UI output **and** MySQL record persistence |
+| DB-backed Tests | `tests/ui.db.spec.js` | UI output **and** MongoDB document persistence |
 | BDD Scenarios | `features/greeting.feature` | Same flows driven through Cucumber/Gherkin |
 
 ## Preconditions (all suites)
@@ -14,7 +14,7 @@
 - Local app served at `http://127.0.0.1:4173` (auto-started by Playwright `webServer` config).
 
 ## Additional Preconditions (DB-backed tests)
-- MySQL container running: `npm run db:up`.
+- MongoDB container running: `npm run db:up`.
 - `.env` file present with DB credentials (copy from `.env.example`).
 - Container must be healthy before running tests; `server.js` retries automatically.
 
@@ -53,9 +53,9 @@
 
 ## DB-backed Test Cases (`tests/ui.db.spec.js`)
 
-> These tests verify FR-7, FR-8, and FR-9. Each test clears the `greetings` table before running and queries the database after the UI interaction to confirm the record was persisted correctly.
+> These tests verify FR-7, FR-8, and FR-9. Each test clears the `greetings` collection before running and queries the database after the UI interaction to confirm the document was persisted correctly.
 
-### TC-004: Personalized greeting saved to MySQL
+### TC-004: Personalized greeting saved to MongoDB
 - Requirement Mapping: FR-2, FR-5, FR-7, FR-8, FR-9
 - Steps:
   1. Clear the `greetings` table.
@@ -70,7 +70,7 @@
   - `resolved_name` equals the entered name.
   - `greeting_text` equals `Hello, <name>!`.
 
-### TC-005: Guest greeting saved to MySQL
+### TC-005: Guest greeting saved to MongoDB
 - Requirement Mapping: FR-4, FR-7, FR-8, FR-9
 - Steps:
   1. Clear the `greetings` table.

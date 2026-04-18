@@ -39,7 +39,7 @@ The app is a static single-page interface that:
 - The frontend shall call this endpoint when the button is clicked; the UI shall display the greeting returned by the API.
 
 ### FR-8: Greeting persistence
-- Every greeting generated through the API shall be persisted to the `greetings` table in the MySQL database.
+- Every greeting generated through the API shall be persisted to the `greetings` collection in MongoDB.
 - Persistence shall occur on every button click, regardless of whether a name was entered.
 
 ### FR-9: Database record structure
@@ -51,7 +51,7 @@ The app is a static single-page interface that:
 
 ## 4. Non-Functional Requirements
 - The app shall be served by a Node.js/Express backend (`server.js`) rather than as plain static files.
-- The backend shall wait for the MySQL database to become available before accepting requests (retry up to 20 times with a 1.5 s delay).
+- The backend shall wait for the MongoDB database to become available before accepting requests (retry up to 20 times with a 1.5 s delay).
 - The UI shall remain usable on desktop and mobile viewport sizes.
 - The app shall be testable through Playwright using stable selectors and accessible roles.
 - The database shall run in an isolated Docker container to ensure portability and environment parity.

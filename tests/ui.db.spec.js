@@ -11,7 +11,7 @@ test.afterAll(async () => {
   await closePool();
 });
 
-test("TC-004 | saves personalized greeting to MySQL", async ({ page }) => {
+test("TC-004 | saves personalized greeting to MongoDB", async ({ page }) => {
   const testName = `Rahul-${Date.now()}`;
 
   await page.goto("/");
@@ -26,7 +26,7 @@ test("TC-004 | saves personalized greeting to MySQL", async ({ page }) => {
   expect(latest.greeting_text).toBe(`Hello, ${testName}!`);
 });
 
-test("TC-005 | saves guest greeting to MySQL", async ({ page }) => {
+test("TC-005 | saves guest greeting to MongoDB", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Generate greeting" }).click();
   await expect(page.locator("#greeting-output")).toHaveText("Hello, Guest!");
