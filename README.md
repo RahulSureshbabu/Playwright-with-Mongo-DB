@@ -99,7 +99,6 @@ npm -v
 ## 4) Install Dependencies
 
 ```bash
-cd ui-playwright-tests
 npm install
 ```
 
@@ -264,6 +263,24 @@ Verify `.env` values match your MongoDB config.
 ### `npm` command not found
 
 Install Node.js and restart terminal.
+
+### Cannot run `npm` on Windows PowerShell
+
+On Windows, PowerShell may block `.ps1` wrapper scripts due to execution policy.
+
+**Option 1: Use `.cmd` wrappers directly**
+```powershell
+npm.cmd install
+npx.cmd playwright install chromium
+npm.cmd run test:ui
+```
+
+**Option 2: Allow local scripts for current user**
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+Then use `npm` and `npx` normally.
 
 ---
 
