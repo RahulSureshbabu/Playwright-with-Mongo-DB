@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 const port = Number(process.env.APP_PORT || 4173);
 
-const mongoUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017";
+const mongoUri = process.env.MONGO_URI || "mongodb://root:root@127.0.0.1:27017/ui_playwright_tests?authSource=admin";
 const dbName = process.env.DB_NAME || "ui_playwright_tests";
 
 let client;
